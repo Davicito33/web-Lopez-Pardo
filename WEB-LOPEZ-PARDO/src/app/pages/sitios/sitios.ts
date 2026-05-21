@@ -36,13 +36,13 @@ export class Sitios implements OnInit {
 
   descripcion = '';
 
+  colorTema = '#000000';
+
   sitios: any[] = [];
 
   editando = false;
 
   idEditar = '';
-
-
 
   constructor(
     private sitioService: SitioService,
@@ -57,31 +57,31 @@ export class Sitios implements OnInit {
 
   obtenerSitios(): void {
 
-  this.sitioService.getSitios().subscribe({
+    this.sitioService.getSitios().subscribe({
 
-    next: (res: any) => {
+      next: (res: any) => {
 
-      console.log('RESPUESTA API:', res);
+        console.log('RESPUESTA API:', res);
 
-      this.sitios = Array.isArray(res)
-        ? [...res]
-        : [...(res.sitios || [])];
+        this.sitios = Array.isArray(res)
+          ? [...res]
+          : [...(res.sitios || [])];
 
-      console.log('SITIOS:', this.sitios);
+        console.log('SITIOS:', this.sitios);
 
-      this.cdr.detectChanges();
+        this.cdr.detectChanges();
 
-    },
+      },
 
-    error: (err: any) => {
+      error: (err: any) => {
 
-      console.log(err);
+        console.log(err);
 
-    }
+      }
 
-  });
+    });
 
-}
+  }
 
   crearSitio(): void {
 
@@ -91,7 +91,7 @@ export class Sitios implements OnInit {
 
       descripcion: this.descripcion,
 
-      colorTema: '#000000',
+      colorTema: this.colorTema,
 
       plantilla: 'moderna'
 
@@ -151,6 +151,8 @@ export class Sitios implements OnInit {
 
     this.descripcion = sitio.descripcion;
 
+    this.colorTema = sitio.colorTema;
+
   }
 
   actualizarSitio(): void {
@@ -159,7 +161,9 @@ export class Sitios implements OnInit {
 
       nombreSitio: this.nombreSitio,
 
-      descripcion: this.descripcion
+      descripcion: this.descripcion,
+
+      colorTema: this.colorTema
 
     };
 
@@ -197,6 +201,8 @@ export class Sitios implements OnInit {
     this.nombreSitio = '';
 
     this.descripcion = '';
+
+    this.colorTema = '#000000';
 
   }
 

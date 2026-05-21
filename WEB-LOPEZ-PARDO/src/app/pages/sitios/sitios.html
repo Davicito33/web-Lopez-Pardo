@@ -61,6 +61,21 @@
 
             </div>
 
+            <div class="mb-3">
+
+                <label class="form-label">
+                    Color del fondo
+                </label>
+
+                <input
+                    type="color"
+                    class="form-control form-control-color"
+                    [(ngModel)]="colorTema"
+                    name="colorTema"
+                >
+
+            </div>
+
             <button
                 *ngIf="!editando"
                 type="button"
@@ -100,82 +115,81 @@
             Lista de Sitios
         </h4>
 
-            <table
-                *ngIf="sitios.length > 0"
-                class="table table-bordered table-hover"
-            >
+        <table
+            *ngIf="sitios.length > 0"
+            class="table table-bordered table-hover"
+        >
 
-                <thead>
+            <thead>
 
-                    <tr>
+                <tr>
 
-                        <th>
-                            Nombre
-                        </th>
+                    <th>
+                        Nombre
+                    </th>
 
-                        <th>
-                            Descripción
-                        </th>
+                    <th>
+                        Descripción
+                    </th>
 
-                        <th width="250">
-                            Acciones
-                        </th>
+                    <th width="250">
+                        Acciones
+                    </th>
 
-                    </tr>
+                </tr>
 
-                </thead>
+            </thead>
 
-                <tbody>
+            <tbody>
 
-                    <tr *ngFor="let sitio of sitios">
+                <tr *ngFor="let sitio of sitios">
 
-                        <td>
-                            {{ sitio.nombreSitio }}
-                        </td>
+                    <td>
+                        {{ sitio.nombreSitio }}
+                    </td>
 
-                        <td>
-                            {{ sitio.descripcion }}
-                        </td>
+                    <td>
+                        {{ sitio.descripcion }}
+                    </td>
 
-                        <td>
+                    <td>
 
-                            <button
-                                class="btn btn-warning btn-sm me-2"
-                                (click)="editarSitio(sitio)"
-                            >
-                                Editar
-                            </button>
+                        <button
+                            class="btn btn-warning btn-sm me-2"
+                            (click)="editarSitio(sitio)"
+                        >
+                            Editar
+                        </button>
 
-                            <button
-                                class="btn btn-danger btn-sm me-2"
-                                (click)="eliminarSitio(sitio._id)"
-                            >
-                                Eliminar
-                            </button>
+                        <button
+                            class="btn btn-danger btn-sm me-2"
+                            (click)="eliminarSitio(sitio._id)"
+                        >
+                            Eliminar
+                        </button>
 
-                            <a
-                                class="btn btn-primary btn-sm"
-                                [routerLink]="['/preview', sitio._id]"
-                            >
-                                Preview
-                            </a>
+                        <a
+                            class="btn btn-primary btn-sm"
+                            [routerLink]="['/preview', sitio._id]"
+                        >
+                            Preview
+                        </a>
 
-                        </td>
+                    </td>
 
-                    </tr>
+                </tr>
 
-                </tbody>
+            </tbody>
 
-            </table>
+        </table>
 
-            <div
-                *ngIf="sitios.length === 0"
-                class="alert alert-info"
-            >
-                No hay sitios registrados
-            </div>
-
+        <div
+            *ngIf="sitios.length === 0"
+            class="alert alert-info"
+        >
+            No hay sitios registrados
         </div>
 
     </div>
 
+</div>
