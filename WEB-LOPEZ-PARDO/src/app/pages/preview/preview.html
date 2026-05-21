@@ -1,0 +1,23 @@
+<div *ngIf="sitio">
+
+    <div
+        class="min-vh-100 text-center d-flex flex-column justify-content-center align-items-center"
+        [style.background]="sitio.colorTema"
+        style="color:white;"
+    >
+
+        <h1 class="display-1 fw-bold">
+            {{ sitio.nombreSitio }}
+        </h1>
+
+        <p class="fs-3 mt-3">
+            {{ sitio.descripcion }}
+        </p>
+
+        <button class="btn btn-light mt-4">
+            Explorar
+        </button>
+
+    </div>
+
+</div>

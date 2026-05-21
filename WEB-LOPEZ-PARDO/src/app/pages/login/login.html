@@ -1,0 +1,76 @@
+<div class="container mt-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-4">
+
+            <div class="card shadow">
+
+                <div class="card-body">
+
+                    <h2 class="text-center mb-4">
+                        Iniciar Sesión
+                    </h2>
+
+                    <form (ngSubmit)="iniciarSesion()">
+
+                        <div class="mb-3">
+
+                            <label>Correo</label>
+
+                            <input
+                                type="email"
+                                class="form-control"
+                                [(ngModel)]="correo"
+                                name="correo"
+                            >
+
+                        </div>
+
+                        <div class="mb-3">
+
+                            <label>Contraseña</label>
+
+                            <input
+                                type="password"
+                                class="form-control"
+                                [(ngModel)]="clave"
+                                name="clave"
+                            >
+
+                        </div>
+
+                        <button
+                            class="btn btn-primary w-100"
+                            type="submit"
+                        >
+                            Ingresar
+                        </button>
+
+                    </form>
+
+                    <div class="text-center mt-3">
+
+                        <span>
+                            ¿No estás registrado?
+                        </span>
+
+                        <a
+                            routerLink="/register"
+                            class="ms-2"
+                            style="cursor:pointer;"
+                        >
+                            Crear cuenta
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

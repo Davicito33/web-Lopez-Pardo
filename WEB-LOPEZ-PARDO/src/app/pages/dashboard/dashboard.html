@@ -1,0 +1,125 @@
+<div class="container mt-5">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+
+        <div>
+
+            <h1>
+                WEBAMIA
+            </h1>
+
+            <p class="text-muted">
+
+                Bienvenido
+
+                <strong>
+                    {{ usuario?.usuario }}
+                </strong>
+
+            </p>
+
+        </div>
+
+        <button
+            class="btn btn-danger"
+            (click)="cerrarSesion()"
+        >
+            Cerrar Sesión
+        </button>
+
+    </div>
+
+    <div class="row g-4">
+
+        <div class="col-md-4">
+
+            <div class="card shadow p-4 text-center h-100">
+
+                <h5>
+                    Total de Sitios
+                </h5>
+
+                <h1 class="display-4">
+                    {{ totalSitios }}
+                </h1>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-4">
+
+            <div class="card shadow p-4 text-center h-100">
+
+                <h5>
+                    Gestión
+                </h5>
+
+                <a
+                    routerLink="/sitios"
+                    class="btn btn-primary mt-3"
+                >
+                    Administrar Sitios
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="card shadow p-4 mt-5">
+
+        <h4 class="mb-4">
+            Últimos Sitios
+        </h4>
+
+        <div
+            *ngIf="ultimosSitios.length === 0"
+            class="alert alert-warning"
+        >
+            No hay sitios registrados.
+        </div>
+
+        <table
+            class="table table-hover"
+            *ngIf="ultimosSitios.length > 0"
+        >
+
+            <thead>
+
+                <tr>
+
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                    <th>Plantilla</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <tr *ngFor="let sitio of ultimosSitios">
+
+                    <td>
+                        {{ sitio.nombreSitio }}
+                    </td>
+
+                    <td>
+                        {{ sitio.descripcion }}
+                    </td>
+
+                    <td>
+                        {{ sitio.plantilla }}
+                    </td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>

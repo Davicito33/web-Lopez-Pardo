@@ -1,0 +1,181 @@
+<div class="container mt-5">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+
+        <h1>
+            Mis Sitios Web
+        </h1>
+
+        <a
+            routerLink="/dashboard"
+            class="btn btn-secondary"
+        >
+            Volver
+        </a>
+
+    </div>
+
+    <div class="card shadow p-4 mb-4">
+
+        <h4 class="mb-4">
+
+            <span *ngIf="!editando">
+                Crear Sitio
+            </span>
+
+            <span *ngIf="editando">
+                Editar Sitio
+            </span>
+
+        </h4>
+
+        <form>
+
+            <div class="mb-3">
+
+                <label class="form-label">
+                    Nombre del sitio
+                </label>
+
+                <input
+                    type="text"
+                    class="form-control"
+                    [(ngModel)]="nombreSitio"
+                    name="nombreSitio"
+                >
+
+            </div>
+
+            <div class="mb-3">
+
+                <label class="form-label">
+                    Descripción
+                </label>
+
+                <textarea
+                    class="form-control"
+                    rows="3"
+                    [(ngModel)]="descripcion"
+                    name="descripcion"
+                ></textarea>
+
+            </div>
+
+            <button
+                *ngIf="!editando"
+                type="button"
+                class="btn btn-primary"
+                (click)="crearSitio()"
+            >
+                Crear Sitio
+            </button>
+
+            <div *ngIf="editando">
+
+                <button
+                    type="button"
+                    class="btn btn-warning me-2"
+                    (click)="actualizarSitio()"
+                >
+                    Actualizar
+                </button>
+
+                <button
+                    type="button"
+                    class="btn btn-secondary"
+                    (click)="cancelarEdicion()"
+                >
+                    Cancelar
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+    <div class="card shadow p-4">
+
+        <h4 class="mb-4">
+            Lista de Sitios
+        </h4>
+
+            <table
+                *ngIf="sitios.length > 0"
+                class="table table-bordered table-hover"
+            >
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            Nombre
+                        </th>
+
+                        <th>
+                            Descripción
+                        </th>
+
+                        <th width="250">
+                            Acciones
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr *ngFor="let sitio of sitios">
+
+                        <td>
+                            {{ sitio.nombreSitio }}
+                        </td>
+
+                        <td>
+                            {{ sitio.descripcion }}
+                        </td>
+
+                        <td>
+
+                            <button
+                                class="btn btn-warning btn-sm me-2"
+                                (click)="editarSitio(sitio)"
+                            >
+                                Editar
+                            </button>
+
+                            <button
+                                class="btn btn-danger btn-sm me-2"
+                                (click)="eliminarSitio(sitio._id)"
+                            >
+                                Eliminar
+                            </button>
+
+                            <a
+                                class="btn btn-primary btn-sm"
+                                [routerLink]="['/preview', sitio._id]"
+                            >
+                                Preview
+                            </a>
+
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+            <div
+                *ngIf="sitios.length === 0"
+                class="alert alert-info"
+            >
+                No hay sitios registrados
+            </div>
+
+        </div>
+
+    </div>
+
