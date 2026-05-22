@@ -299,15 +299,16 @@
 .btn-edit,
 .btn-delete,
 .btn-preview{
-    width:42px;
-    height:42px;
     border:none;
     border-radius:12px;
     display:flex;
     align-items:center;
     justify-content:center;
+    gap:8px;
     color:white;
     transition:0.3s;
+    padding:10px 16px;
+    font-weight:600;
 }
 
 .btn-edit{

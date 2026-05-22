@@ -11,23 +11,17 @@
             </h2>
 
             <p class="logo-subtitle">
-                Panel Administrativo
+                Plataforma de Sitios Web
             </p>
 
             <div class="menu mt-5">
 
-                <a
-                    routerLink="/dashboard"
-                    class="menu-item active"
-                >
+                <a routerLink="/dashboard" class="menu-item active">
                     <i class="bi bi-grid-fill"></i>
                     Dashboard
                 </a>
 
-                <a
-                    routerLink="/sitios"
-                    class="menu-item"
-                >
+                <a routerLink="/sitios" class="menu-item">
                     <i class="bi bi-globe"></i>
                     Sitios Web
                 </a>
@@ -36,10 +30,7 @@
 
         </div>
 
-        <button
-            class="btn btn-logout"
-            (click)="cerrarSesion()"
-        >
+        <button class="btn btn-logout" (click)="cerrarSesion()">
             <i class="bi bi-box-arrow-right"></i>
             Cerrar sesión
         </button>
@@ -62,7 +53,7 @@
                 </h1>
 
                 <p class="welcome-text">
-                    Bienvenido nuevamente al panel de administración.
+                    Gestiona y personaliza tus sitios web fácilmente.
                 </p>
 
             </div>
@@ -129,10 +120,7 @@
                         Gestiona, crea y personaliza tus proyectos.
                     </p>
 
-                    <a
-                        routerLink="/sitios"
-                        class="btn btn-card"
-                    >
+                    <a routerLink="/sitios" class="btn btn-card">
                         Ir al panel
                     </a>
 
@@ -194,18 +182,12 @@
 
             </div>
 
-            <div
-                *ngIf="ultimosSitios.length === 0"
-                class="empty-box"
-            >
+            <div *ngIf="ultimosSitios.length === 0" class="empty-box">
                 <i class="bi bi-exclamation-circle"></i>
                 <p>No hay sitios registrados.</p>
             </div>
 
-            <div
-                class="table-responsive"
-                *ngIf="ultimosSitios.length > 0"
-            >
+            <div class="table-responsive" *ngIf="ultimosSitios.length > 0">
 
                 <table class="table custom-table">
 
