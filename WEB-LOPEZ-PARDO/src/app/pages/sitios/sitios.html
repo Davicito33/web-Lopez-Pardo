@@ -1,193 +1,292 @@
-<div class="container mt-5">
+<div class="sites-container">
 
-    <div class="d-flex justify-content-between align-items-center mb-4">
+    <!-- SIDEBAR -->
 
-        <h1>
-            Mis Sitios Web
-        </h1>
+    <div class="sidebar">
 
-        <a
-            routerLink="/dashboard"
-            class="btn btn-secondary"
-        >
+        <div>
+
+            <h2 class="logo">
+                WEBAMIA
+            </h2>
+
+            <p class="logo-subtitle">
+                Gestión de Sitios Web
+            </p>
+
+            <div class="menu mt-5">
+
+                <a routerLink="/dashboard" class="menu-item">
+                    <i class="bi bi-grid-fill"></i>
+                    Dashboard
+                </a>
+
+                <a routerLink="/sitios" class="menu-item active">
+                    <i class="bi bi-globe"></i>
+                    Mis Sitios
+                </a>
+
+            </div>
+
+        </div>
+
+        <a routerLink="/dashboard" class="btn btn-sidebar">
+            <i class="bi bi-arrow-left"></i>
             Volver
         </a>
 
     </div>
 
-    <div class="card shadow p-4 mb-4">
+    <!-- MAIN -->
 
-        <h4 class="mb-4">
+    <div class="main-content">
 
-            <span *ngIf="!editando">
-                Crear Sitio
-            </span>
+        <!-- HEADER -->
 
-            <span *ngIf="editando">
-                Editar Sitio
-            </span>
+        <div class="page-header">
 
-        </h4>
+            <div>
 
-        <form>
+                <h1 class="page-title">
+                    Mis Sitios Web
+                </h1>
 
-            <div class="mb-3">
-
-                <label class="form-label">
-                    Nombre del sitio
-                </label>
-
-                <input
-                    type="text"
-                    class="form-control"
-                    [(ngModel)]="nombreSitio"
-                    name="nombreSitio"
-                >
+                <p class="page-subtitle">
+                    Administra, crea y personaliza tus proyectos web.
+                </p>
 
             </div>
 
-            <div class="mb-3">
+        </div>
 
-                <label class="form-label">
-                    Descripción
-                </label>
+        <!-- FORMULARIO -->
 
-                <textarea
-                    class="form-control"
-                    rows="3"
-                    [(ngModel)]="descripcion"
-                    name="descripcion"
-                ></textarea>
+        <div class="form-card">
 
-            </div>
+            <div class="form-header">
 
-            <div class="mb-3">
+                <h3>
 
-                <label class="form-label">
-                    Color del fondo
-                </label>
+                    <span *ngIf="!editando">
+                        Crear Nuevo Sitio
+                    </span>
 
-                <input
-                    type="color"
-                    class="form-control form-control-color"
-                    [(ngModel)]="colorTema"
-                    name="colorTema"
-                >
+                    <span *ngIf="editando">
+                        Editar Sitio Web
+                    </span>
 
-            </div>
+                </h3>
 
-            <button
-                *ngIf="!editando"
-                type="button"
-                class="btn btn-primary"
-                (click)="crearSitio()"
-            >
-                Crear Sitio
-            </button>
+                <div class="header-badge">
 
-            <div *ngIf="editando">
+                    <i class="bi bi-stars"></i>
 
-                <button
-                    type="button"
-                    class="btn btn-warning me-2"
-                    (click)="actualizarSitio()"
-                >
-                    Actualizar
-                </button>
+                    <span *ngIf="!editando">
+                        Nuevo
+                    </span>
 
-                <button
-                    type="button"
-                    class="btn btn-secondary"
-                    (click)="cancelarEdicion()"
-                >
-                    Cancelar
-                </button>
+                    <span *ngIf="editando">
+                        Editando
+                    </span>
+
+                </div>
 
             </div>
 
-        </form>
+            <form>
 
-    </div>
+                <!-- NOMBRE -->
 
-    <div class="card shadow p-4">
+                <div class="mb-4">
 
-        <h4 class="mb-4">
-            Lista de Sitios
-        </h4>
+                    <label class="form-label">
+                        Nombre del sitio
+                    </label>
 
-        <table
-            *ngIf="sitios.length > 0"
-            class="table table-bordered table-hover"
-        >
+                    <div class="input-box">
 
-            <thead>
+                        <i class="bi bi-window"></i>
 
-                <tr>
+                        <input type="text" class="form-control custom-input" [(ngModel)]="nombreSitio"
+                            name="nombreSitio" placeholder="Ejemplo: Mi Tienda Online">
 
-                    <th>
-                        Nombre
-                    </th>
+                    </div>
 
-                    <th>
+                </div>
+
+                <!-- DESCRIPCION -->
+
+                <div class="mb-4">
+
+                    <label class="form-label">
                         Descripción
-                    </th>
+                    </label>
 
-                    <th width="250">
-                        Acciones
-                    </th>
+                    <textarea class="form-control custom-textarea" rows="4" [(ngModel)]="descripcion" name="descripcion"
+                        placeholder="Describe tu sitio web..."></textarea>
 
-                </tr>
+                </div>
 
-            </thead>
+                <!-- COLOR -->
 
-            <tbody>
+                <div class="mb-4">
 
-                <tr *ngFor="let sitio of sitios">
+                    <label class="form-label">
+                        Color del tema
+                    </label>
 
-                    <td>
-                        {{ sitio.nombreSitio }}
-                    </td>
+                    <div class="color-picker-box">
 
-                    <td>
-                        {{ sitio.descripcion }}
-                    </td>
+                        <input type="color" class="form-control form-control-color custom-color" [(ngModel)]="colorTema"
+                            name="colorTema">
 
-                    <td>
+                        <span class="color-code">
+                            {{ colorTema }}
+                        </span>
 
-                        <button
-                            class="btn btn-warning btn-sm me-2"
-                            (click)="editarSitio(sitio)"
-                        >
-                            Editar
+                    </div>
+
+                </div>
+
+                <!-- BOTONES -->
+
+                <div class="buttons-box">
+
+                    <button *ngIf="!editando" type="button" class="btn btn-create" (click)="crearSitio()">
+                        <i class="bi bi-plus-circle"></i>
+                        Crear Sitio
+                    </button>
+
+                    <div *ngIf="editando">
+
+                        <button type="button" class="btn btn-update me-2" (click)="actualizarSitio()">
+                            <i class="bi bi-pencil-square"></i>
+                            Actualizar
                         </button>
 
-                        <button
-                            class="btn btn-danger btn-sm me-2"
-                            (click)="eliminarSitio(sitio._id)"
-                        >
-                            Eliminar
+                        <button type="button" class="btn btn-cancel" (click)="cancelarEdicion()">
+                            <i class="bi bi-x-circle"></i>
+                            Cancelar
                         </button>
 
-                        <a
-                            class="btn btn-primary btn-sm"
-                            [routerLink]="['/preview', sitio._id]"
-                        >
-                            Preview
-                        </a>
+                    </div>
 
-                    </td>
+                </div>
 
-                </tr>
+            </form>
 
-            </tbody>
+        </div>
 
-        </table>
+        <!-- TABLA -->
 
-        <div
-            *ngIf="sitios.length === 0"
-            class="alert alert-info"
-        >
-            No hay sitios registrados
+        <div class="table-card">
+
+            <div class="table-top">
+
+                <div>
+
+                    <h3>
+                        Lista de Sitios
+                    </h3>
+
+                    <p>
+                        Todos los sitios registrados en la plataforma.
+                    </p>
+
+                </div>
+
+                <div class="table-count">
+                    {{ sitios.length }} sitios
+                </div>
+
+            </div>
+
+            <div *ngIf="sitios.length === 0" class="empty-state">
+
+                <i class="bi bi-folder-x"></i>
+
+                <h4>
+                    No hay sitios registrados
+                </h4>
+
+                <p>
+                    Crea tu primer sitio web para comenzar.
+                </p>
+
+            </div>
+
+            <div class="table-responsive" *ngIf="sitios.length > 0">
+
+                <table class="table custom-table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>Nombre</th>
+                            <th>Descripción</th>
+                            <th>Color</th>
+                            <th>Acciones</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr *ngFor="let sitio of sitios">
+
+                            <td class="fw-bold">
+                                {{ sitio.nombreSitio }}
+                            </td>
+
+                            <td>
+                                {{ sitio.descripcion }}
+                            </td>
+
+                            <td>
+
+                                <div class="color-preview">
+
+                                    <span class="color-circle" [style.background]="sitio.colorTema"></span>
+
+                                    {{ sitio.colorTema }}
+
+                                </div>
+
+                            </td>
+
+                            <td>
+
+                                <div class="actions">
+
+                                    <button class="btn btn-edit" (click)="editarSitio(sitio)">
+                                        <i class="bi bi-pencil-fill"></i>
+                                        Editar
+                                    </button>
+
+                                    <button class="btn btn-delete" (click)="eliminarSitio(sitio._id)">
+                                        <i class="bi bi-trash-fill"></i>
+                                        Eliminar
+                                    </button>
+
+                                    <a class="btn btn-preview" [routerLink]="['/preview', sitio._id]">
+                                        <i class="bi bi-eye-fill"></i>
+                                        Preview
+                                    </a>
+
+                                </div>
+
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
         </div>
 
     </div>

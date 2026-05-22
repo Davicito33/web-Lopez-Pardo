@@ -1,82 +1,157 @@
-<div class="container mt-5">
+<div class="register-container">
 
-    <div class="row justify-content-center">
+    <div class="row w-100 align-items-center justify-content-center">
 
-        <div class="col-md-5">
+        <!-- PANEL IZQUIERDO -->
 
-            <div class="card shadow">
+        <div class="col-md-6 d-none d-md-flex info-panel">
 
-                <div class="card-body">
+            <div class="info-content">
 
-                    <h2 class="text-center mb-4">
+                <h1 class="title">
+                    Crea tu
+                    <span>cuenta</span>
+                </h1>
+
+                <p class="subtitle">
+                    Administra y personaliza tus sitios web
+                    con una plataforma moderna, rápida y segura.
+                </p>
+
+                <div class="features">
+
+                    <div class="feature-card">
+
+                        <i class="bi bi-globe"></i>
+
+                        <div>
+                            <h5>Gestión de sitios</h5>
+                            <p>Organiza todos tus proyectos web.</p>
+                        </div>
+
+                    </div>
+
+                    <div class="feature-card">
+
+                        <i class="bi bi-speedometer2"></i>
+
+                        <div>
+                            <h5>Panel moderno</h5>
+                            <p>Interfaz limpia y fácil de usar.</p>
+                        </div>
+
+                    </div>
+
+                    <div class="feature-card">
+
+                        <i class="bi bi-shield-check"></i>
+
+                        <div>
+                            <h5>Cuenta segura</h5>
+                            <p>Protección y seguridad garantizada.</p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- FORMULARIO -->
+
+        <div class="col-md-4">
+
+            <div class="register-card shadow-lg">
+
+                <div class="text-center mb-4">
+
+                    <div class="icon-circle">
+                        <i class="bi bi-person-plus-fill"></i>
+                    </div>
+
+                    <h2 class="mt-3">
                         Registro
                     </h2>
 
-                    <form (ngSubmit)="registrar()">
+                    <p class="text-muted">
+                        Crea tu cuenta para comenzar
+                    </p>
 
-                        <div class="mb-3">
+                </div>
 
-                            <label>Usuario</label>
+                <form (ngSubmit)="registrar()">
 
-                            <input
-                                type="text"
-                                class="form-control"
-                                [(ngModel)]="usuario"
-                                name="usuario"
-                            >
+                    <div class="mb-3">
 
-                        </div>
+                        <label class="form-label">
+                            Usuario
+                        </label>
 
-                        <div class="mb-3">
-
-                            <label>Correo</label>
-
-                            <input
-                                type="email"
-                                class="form-control"
-                                [(ngModel)]="correo"
-                                name="correo"
-                            >
-
-                        </div>
-
-                        <div class="mb-3">
-
-                            <label>Contraseña</label>
-
-                            <input
-                                type="password"
-                                class="form-control"
-                                [(ngModel)]="clave"
-                                name="clave"
-                            >
-
-                        </div>
-
-                        <button
-                            class="btn btn-success w-100"
-                            type="submit"
+                        <input
+                            type="text"
+                            class="form-control custom-input"
+                            [(ngModel)]="usuario"
+                            name="usuario"
+                            placeholder="Ingresa tu usuario"
                         >
-                            Registrarse
-                        </button>
-
-                    </form>
-
-                    <div class="text-center mt-3">
-
-                        <span>
-                            ¿Ya tienes cuenta?
-                        </span>
-
-                        <a
-                            routerLink="/"
-                            class="ms-2"
-                            style="cursor:pointer;"
-                        >
-                            Iniciar sesión
-                        </a>
 
                     </div>
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+                            Correo electrónico
+                        </label>
+
+                        <input
+                            type="email"
+                            class="form-control custom-input"
+                            [(ngModel)]="correo"
+                            name="correo"
+                            placeholder="Ingresa tu correo"
+                        >
+
+                    </div>
+
+                    <div class="mb-4">
+
+                        <label class="form-label">
+                            Contraseña
+                        </label>
+
+                        <input
+                            type="password"
+                            class="form-control custom-input"
+                            [(ngModel)]="clave"
+                            name="clave"
+                            placeholder="Ingresa tu contraseña"
+                        >
+
+                    </div>
+
+                    <button
+                        class="btn btn-register w-100"
+                        type="submit"
+                    >
+                        Crear cuenta
+                    </button>
+
+                </form>
+
+                <div class="text-center mt-4">
+
+                    <span class="text-muted">
+                        ¿Ya tienes cuenta?
+                    </span>
+
+                    <a
+                        routerLink="/"
+                        class="login-link"
+                    >
+                        Iniciar sesión
+                    </a>
 
                 </div>
 

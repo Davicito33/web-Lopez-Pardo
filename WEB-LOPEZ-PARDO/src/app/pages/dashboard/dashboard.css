@@ -1,0 +1,282 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+.dashboard-container{
+    display:flex;
+    min-height:100vh;
+    background:#f4f7fb;
+}
+
+/* SIDEBAR */
+
+.sidebar{
+    width:270px;
+    background:linear-gradient(180deg,#0039a6,#005eff);
+    padding:35px 25px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    color:white;
+}
+
+.logo{
+    font-size:35px;
+    font-weight:800;
+}
+
+.logo-subtitle{
+    opacity:0.8;
+    margin-top:5px;
+}
+
+.menu{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+.menu-item{
+    text-decoration:none;
+    color:white;
+    padding:14px 18px;
+    border-radius:14px;
+    transition:0.3s;
+    display:flex;
+    align-items:center;
+    gap:12px;
+    font-weight:600;
+}
+
+.menu-item:hover{
+    background:rgba(255,255,255,0.15);
+    color:white;
+}
+
+.menu-item.active{
+    background:white;
+    color:#005eff;
+}
+
+.btn-logout{
+    background:white;
+    color:#005eff;
+    border:none;
+    border-radius:14px;
+    padding:14px;
+    font-weight:700;
+}
+
+.btn-logout:hover{
+    background:#eef4ff;
+}
+
+/* MAIN */
+
+.main-content{
+    flex:1;
+    padding:40px;
+}
+
+.topbar{
+    margin-bottom:40px;
+}
+
+.welcome-title{
+    font-size:42px;
+    font-weight:800;
+    color:#0039a6;
+}
+
+.welcome-title span{
+    color:#005eff;
+}
+
+.welcome-text{
+    color:#6c757d;
+    margin-top:10px;
+    font-size:17px;
+}
+
+/* CARDS */
+
+.dashboard-card{
+    border-radius:24px;
+    padding:30px;
+    color:white;
+    height:100%;
+    position:relative;
+    overflow:hidden;
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+    transition:0.3s;
+}
+
+.dashboard-card:hover{
+    transform:translateY(-6px);
+}
+
+.blue-card{
+    background:linear-gradient(135deg,#005eff,#0039a6);
+}
+
+.purple-card{
+    background:linear-gradient(135deg,#7b61ff,#5a3dff);
+}
+
+.green-card{
+    background:linear-gradient(135deg,#00b894,#009e7f);
+}
+
+.card-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
+}
+
+.card-icon{
+    width:65px;
+    height:65px;
+    background:rgba(255,255,255,0.2);
+    border-radius:18px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.card-icon i{
+    font-size:28px;
+}
+
+.card-badge{
+    background:rgba(255,255,255,0.2);
+    padding:8px 14px;
+    border-radius:12px;
+    font-size:14px;
+}
+
+.card-number{
+    font-size:60px;
+    font-weight:800;
+    margin:15px 0;
+}
+
+.status{
+    font-size:45px;
+    font-weight:800;
+    margin:15px 0;
+}
+
+.btn-card{
+    background:white;
+    color:#005eff;
+    border:none;
+    border-radius:12px;
+    padding:12px 18px;
+    margin-top:20px;
+    font-weight:700;
+}
+
+.btn-card:hover{
+    background:#eef4ff;
+    color:#005eff;
+}
+
+/* TABLE */
+
+.table-container{
+    background:white;
+    border-radius:24px;
+    padding:30px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.06);
+}
+
+.table-header{
+    margin-bottom:25px;
+}
+
+.table-header h3{
+    font-weight:800;
+    color:#0039a6;
+}
+
+.table-header p{
+    color:#6c757d;
+}
+
+.custom-table thead{
+    background:#005eff;
+    color:white;
+}
+
+.custom-table th{
+    padding:18px;
+    border:none;
+}
+
+.custom-table td{
+    padding:18px;
+    vertical-align:middle;
+}
+
+.custom-table tbody tr{
+    transition:0.2s;
+}
+
+.custom-table tbody tr:hover{
+    background:#f4f8ff;
+}
+
+.template-badge{
+    background:#eef4ff;
+    color:#005eff;
+    padding:8px 14px;
+    border-radius:10px;
+    font-weight:600;
+}
+
+.empty-box{
+    text-align:center;
+    padding:50px;
+    color:#6c757d;
+}
+
+.empty-box i{
+    font-size:50px;
+    margin-bottom:15px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:992px){
+
+    .dashboard-container{
+        flex-direction:column;
+    }
+
+    .sidebar{
+        width:100%;
+        flex-direction:row;
+        align-items:center;
+    }
+
+}
+
+@media(max-width:768px){
+
+    .main-content{
+        padding:20px;
+    }
+
+    .welcome-title{
+        font-size:32px;
+    }
+
+    .sidebar{
+        flex-direction:column;
+        gap:20px;
+    }
+
+}
