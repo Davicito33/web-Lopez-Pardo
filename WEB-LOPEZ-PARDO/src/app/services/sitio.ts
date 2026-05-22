@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 
 export class SitioService {
 
-  api = 'http://localhost:3000/api/sitios';
+  api = 'https://api-lopez-pardo.onrender.com/api/sitios';
 
   constructor(
     private http: HttpClient
