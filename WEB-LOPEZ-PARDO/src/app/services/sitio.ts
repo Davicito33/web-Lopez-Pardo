@@ -7,11 +7,11 @@ import { HttpClient } from '@angular/common/http';
 
 export class SitioService {
 
-  api = 'https://api-lopez-pardo.onrender.com/api/sitios';
+  api = 'http://localhost:3000/api/sitios';
 
   constructor(
     private http: HttpClient
-  ) {}
+  ) { }
 
   getSitios() {
 
@@ -45,13 +45,13 @@ export class SitioService {
 
   }
 
-  getSitioById(id:string){
+  getSitioById(id: string) {
 
-  return this.http.get(
-    `${this.api}/${id}`
-  );
+    return this.http.get(
+      `${this.api}/${id}`
+    );
 
-}
+  }
 
 
 
